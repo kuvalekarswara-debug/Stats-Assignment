@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interactive educational resource for learning Random Variables and Sample Spaces. Perfect for undergraduate students studying probability and statistics.">
+    <meta property="og:title" content="Random Variables & Sample Spaces - Interactive Learning">
+    <meta property="og:description" content="Master the fundamentals of Random Variables and Sample Spaces through interactive visualizations and challenging questions.">
+    <title>Random Variables & Sample Spaces | Interactive Learning</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <!-- Animated Background Particles -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">Random Variables & Sample Spaces</div>
+            <ul class="nav-menu">
+                <li><a href="#sample-space" class="nav-link">Sample Spaces</a></li>
+                <li><a href="#random-variables" class="nav-link">Random Variables</a></li>
+                <li><a href="#discrete-rv" class="nav-link">Discrete RV</a></li>
+                <li><a href="#continuous-rv" class="nav-link">Continuous RV</a></li>
+                <li><a href="#distributions" class="nav-link">Distributions</a></li>
+                <li><a href="#examples" class="nav-link">Interactive</a></li>
+                <li><a href="#challenges" class="nav-link">Challenges</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title fade-in">Random Variables & Sample Spaces</h1>
+            <p class="hero-subtitle fade-in-delay">Master probability theory through interactive visualizations and engaging examples</p>
+            <a href="#sample-space" class="cta-button fade-in-delay-2">Start Learning</a>
+        </div>
+    </section>
+
+    <!-- Sample Space Section -->
+    <section id="sample-space" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Understanding Sample Spaces</h2>
+                <div class="section-subtitle">The foundation of probability theory</div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🎲</div>
+                    <h3>What is a Sample Space?</h3>
+                    <p>A <strong>sample space</strong> (denoted as <code>S</code> or <code>Ω</code>) is the set of all possible outcomes of a random experiment. It represents every distinct result that could occur when performing the experiment.</p>
+                    <div class="formula-box">
+                        <div class="formula-label">Notation</div>
+                        <code>S = {ω₁, ω₂, ω₃, ..., ωₙ}</code>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Types of Sample Spaces</h3>
+                    <ul class="styled-list">
+                        <li><strong>Finite:</strong> Contains a countable, limited number of outcomes
+                            <div class="example-box">Example: Rolling a die → S = {1, 2, 3, 4, 5, 6}</div>
+                        </li>
+                        <li><strong>Countably Infinite:</strong> Infinite outcomes that can be listed
+                            <div class="example-box">Example: Number of coin flips until heads → S = {1, 2, 3, ...}</div>
+                        </li>
+                        <li><strong>Uncountably Infinite:</strong> Contains uncountably many outcomes
+                            <div class="example-box">Example: Exact time until decay → S = [0, ∞)</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="content-card full-width">
+                    <div class="card-icon">💡</div>
+                    <h3>Real-World Examples</h3>
+                    <div class="examples-grid">
+                        <div class="example-item">
+                            <h4>Coin Toss</h4>
+                            <p><code>S = {Heads, Tails}</code></p>
+                            <span class="badge">Finite</span>
+                        </div>
+                        <div class="example-item">
+                            <h4>Card Draw</h4>
+                            <p><code>S = {♠A, ♠2, ..., ♥K}</code></p>
+                            <span class="badge">Finite (52 outcomes)</span>
+                        </div>
+                        <div class="example-item">
+                            <h4>Temperature Reading</h4>
+                            <p><code>S = (-50°C, 50°C)</code></p>
+                            <span class="badge">Continuous</span>
+                        </div>
+                        <div class="example-item">
+                            <h4>Student Heights</h4>
+                            <p><code>S = (0 cm, 300 cm)</code></p>
+                            <span class="badge">Continuous</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Random Variables Section -->
+    <section id="random-variables" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Random Variables</h2>
+                <div class="section-subtitle">Mapping outcomes to numerical values</div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🔢</div>
+                    <h3>What is a Random Variable?</h3>
+                    <p>A <strong>random variable</strong> (denoted as <code>X</code>, <code>Y</code>, <code>Z</code>) is a function that assigns a numerical value to each outcome in the sample space. It transforms qualitative outcomes into quantitative measurements.</p>
+                    <div class="formula-box">
+                        <div class="formula-label">Mathematical Definition</div>
+                        <code>X: S → ℝ</code>
+                        <p class="formula-note">Maps from sample space S to real numbers ℝ</p>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-icon">🎯</div>
+                    <h3>Why Use Random Variables?</h3>
+                    <ul class="styled-list">
+                        <li><strong>Quantification:</strong> Convert outcomes to numbers for analysis</li>
+                        <li><strong>Standardization:</strong> Compare different experiments uniformly</li>
+                        <li><strong>Mathematical Operations:</strong> Calculate means, variances, probabilities</li>
+                        <li><strong>Modeling:</strong> Represent real-world phenomena mathematically</li>
+                    </ul>
+                </div>
+
+                <div class="content-card full-width">
+                    <div class="card-icon">📐</div>
+                    <h3>Example: Dice Roll Random Variable</h3>
+                    <div class="rv-example">
+                        <div class="mapping-visual">
+                            <div class="mapping-column">
+                                <h4>Sample Space (S)</h4>
+                                <div class="outcome-list">
+                                    <span class="outcome">⚀</span>
+                                    <span class="outcome">⚁</span>
+                                    <span class="outcome">⚂</span>
+                                    <span class="outcome">⚃</span>
+                                    <span class="outcome">⚄</span>
+                                    <span class="outcome">⚅</span>
+                                </div>
+                            </div>
+                            <div class="mapping-arrow">→</div>
+                            <div class="mapping-column">
+                                <h4>Random Variable (X)</h4>
+                                <div class="outcome-list">
+                                    <span class="value">1</span>
+                                    <span class="value">2</span>
+                                    <span class="value">3</span>
+                                    <span class="value">4</span>
+                                    <span class="value">5</span>
+                                    <span class="value">6</span>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="mapping-description">Here, X maps each dice face to its numerical value. We can now calculate P(X = 3) = 1/6, E[X] = 3.5, etc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discrete Random Variables Section -->
+    <section id="discrete-rv" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Discrete Random Variables</h2>
+                <div class="section-subtitle">Countable outcomes with distinct probabilities</div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">🔢</div>
+                    <h3>Definition</h3>
+                    <p>A random variable is <strong>discrete</strong> if it can only take on a countable number of distinct values. These values are typically integers, though they can be any countable set.</p>
+                    <div class="formula-box">
+                        <div class="formula-label">Probability Mass Function (PMF)</div>
+                        <code>P(X = x) = p(x)</code>
+                        <p class="formula-note">where Σ p(x) = 1 for all x in the range of X</p>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Key Properties</h3>
+                    <ul class="styled-list">
+                        <li><strong>Countable Values:</strong> X ∈ {x₁, x₂, x₃, ...}</li>
+                        <li><strong>Individual Probabilities:</strong> Each value xᵢ has probability P(X = xᵢ) > 0</li>
+                        <li><strong>Sum to Unity:</strong> Total probability equals 1</li>
+                        <li><strong>PMF Representation:</strong> Fully described by probability mass function</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-icon">📈</div>
+                    <h3>Expected Value</h3>
+                    <p>The expected value (mean) of a discrete random variable:</p>
+                    <div class="formula-box">
+                        <code>E[X] = μ = Σ xᵢ · P(X = xᵢ)</code>
+                        <p class="formula-note">Sum over all possible values xᵢ</p>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-icon">📉</div>
+                    <h3>Variance</h3>
+                    <p>Measures spread of values around the mean:</p>
+                    <div class="formula-box">
+                        <code>Var(X) = σ² = E[(X - μ)²]</code>
+                        <code>Var(X) = Σ (xᵢ - μ)² · P(X = xᵢ)</code>
+                        <p class="formula-note">Standard deviation: σ = √Var(X)</p>
+                    </div>
+                </div>
+
+                <div class="content-card full-width">
+                    <div class="card-icon">🎯</div>
+                    <h3>Common Examples</h3>
+                    <div class="examples-grid">
+                        <div class="drv-example">
+                            <h4>Number of Heads in 3 Coin Flips</h4>
+                            <p><code>X ∈ {0, 1, 2, 3}</code></p>
+                            <div class="prob-table">
+                                <table>
+                                    <tr><th>x</th><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+                                    <tr><th>P(X=x)</th><td>1/8</td><td>3/8</td><td>3/8</td><td>1/8</td></tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="drv-example">
+                            <h4>Number of Students in Class</h4>
+                            <p><code>X ∈ {0, 1, 2, ..., 50}</code></p>
+                            <p class="example-note">Finite, countable outcomes</p>
+                        </div>
+                        <div class="drv-example">
+                            <h4>Number of Emails Received Daily</h4>
+                            <p><code>X ∈ {0, 1, 2, 3, ...}</code></p>
+                            <p class="example-note">Countably infinite (follows Poisson)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Continuous Random Variables Section -->
+    <section id="continuous-rv" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Continuous Random Variables</h2>
+                <div class="section-subtitle">Uncountably infinite outcomes over intervals</div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📏</div>
+                    <h3>Definition</h3>
+                    <p>A random variable is <strong>continuous</strong> if it can take on any value within an interval or collection of intervals. The number of possible values is uncountably infinite.</p>
+                    <div class="formula-box">
+                        <div class="formula-label">Probability Density Function (PDF)</div>
+                        <code>f(x) ≥ 0 for all x</code>
+                        <code>∫ f(x) dx = 1</code>
+                        <p class="formula-note">Integral over entire range equals 1</p>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Key Difference from Discrete</h3>
+                    <div class="highlight-box">
+                        <p><strong>Critical Insight:</strong> For continuous RVs, the probability of any single exact value is zero!</p>
+                        <code>P(X = a) = 0</code>
+                        <p class="formula-note">Instead, we calculate probabilities over intervals:</p>
+                        <code>P(a ≤ X ≤ b) = ∫ᵃᵇ f(x) dx</code>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3>Expected Value</h3>
+                    <p>For continuous random variables:</p>
+                    <div class="formula-box">
+                        <code>E[X] = μ = ∫ x · f(x) dx</code>
+                        <p class="formula-note">Integral replaces summation from discrete case</p>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-icon">📉</div>
+                    <h3>Variance</h3>
+                    <div class="formula-box">
+                        <code>Var(X) = σ² = ∫ (x - μ)² · f(x) dx</code>
+                        <code>Var(X) = E[X²] - (E[X])²</code>
+                        <p class="formula-note">Alternative computational formula</p>
+                    </div>
+                </div>
+
+                <div class="content-card full-width">
+                    <div class="card-icon">🌍</div>
+                    <h3>Real-World Examples</h3>
+                    <div class="examples-grid">
+                        <div class="crv-example">
+                            <h4>Human Height</h4>
+                            <p><code>X ∈ (100 cm, 250 cm)</code></p>
+                            <p class="example-note">Normal distribution: μ ≈ 170 cm, σ ≈ 10 cm</p>
+                        </div>
+                        <div class="crv-example">
+                            <h4>Time Until Next Bus Arrival</h4>
+                            <p><code>X ∈ [0, 30] minutes</code></p>
+                            <p class="example-note">Uniform distribution on interval</p>
+                        </div>
+                        <div class="crv-example">
+                            <h4>Lifetime of Light Bulb</h4>
+                            <p><code>X ∈ [0, ∞) hours</code></p>
+                            <p class="example-note">Exponential distribution: λ = failure rate</p>
+                        </div>
+                        <div class="crv-example">
+                            <h4>Measurement Error</h4>
+                            <p><code>X ∈ (-∞, ∞)</code></p>
+                            <p class="example-note">Normal distribution centered at 0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Probability Distributions Section -->
+    <section id="distributions" class="content-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Probability Distributions</h2>
+                <div class="section-subtitle">Understanding how probabilities are distributed</div>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-icon">📊</div>
+                    <h3>What is a Distribution?</h3>
+                    <p>A <strong>probability distribution</strong> describes how probabilities are assigned to all possible values of a random variable. It completely characterizes the random variable's behavior.</p>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-icon">🎲</div>
+                    <h3>Discrete Distributions</h3>
+                    <ul class="styled-list">
+                        <li><strong>Bernoulli:</strong> Single trial with success/failure (X ∈ {0,1})</li>
+                        <li><strong>Binomial:</strong> Number of successes in n trials</li>
+                        <li><strong>Poisson:</strong> Number of events in fixed time/space</li>
+                        <li><strong>Geometric:</strong> Trials until first success</li>
+                    </ul>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-icon">📈</div>
+                    <h3>Continuous Distributions</h3>
+                    <ul class="styled-list">
+                        <li><strong>Uniform:</strong> Equal probability over interval [a, b]</li>
+                        <li><strong>Normal (Gaussian):</strong> Bell curve, most common in nature</li>
+                        <li><strong>Exponential:</strong> Time between events (memoryless)</li>
+                        <li><strong>Beta:</strong> Probabilities and proportions</li>
+                    </ul>
+                </div>
+
+                <div class="content-card full-width">
+                    <div class="card-icon">🔍</div>
+                    <h3>Cumulative Distribution Function (CDF)</h3>
+                    <p>For both discrete and continuous RVs, the CDF gives the probability that X is less than or equal to a value:</p>
+                    <div class="formula-box">
+                        <code>F(x) = P(X ≤ x)</code>
+                        <div class="cdf-properties">
+                            <h4>Properties:</h4>
+                            <ul>
+                                <li>F(x) is non-decreasing</li>
+                                <li>lim<sub>x→-∞</sub> F(x) = 0</li>
+                                <li>lim<sub>x→∞</sub> F(x) = 1</li>
+                                <li>F(x) is right-continuous</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Examples Section -->
+    <section id="examples" class="content-section interactive-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Interactive Examples</h2>
+                <div class="section-subtitle">Explore random variables through simulation</div>
+            </div>
+
+            <div class="interactive-grid">
+                <!-- Discrete RV: Dice -->
+                <div class="interactive-card">
+                    <h3>Discrete Random Variable: Dice Roll</h3>
+                    <p>Roll the dice multiple times to see the probability distribution emerge!</p>
+                    
+                    <div class="dice-simulator">
+                        <div class="dice-display" id="diceDisplay">🎲</div>
+                        <button class="interactive-button" id="rollDice">Roll Dice</button>
+                        <button class="interactive-button secondary" id="rollMultiple">Roll 100 Times</button>
+                        <button class="interactive-button secondary" id="resetDice">Reset</button>
+                        
+                        <div class="stats-display">
+                            <div class="stat-item">
+                                <span class="stat-label">Total Rolls:</span>
+                                <span class="stat-value" id="totalRolls">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Average:</span>
+                                <span class="stat-value" id="avgRoll">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="diceChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Continuous RV: Spinner -->
+                <div class="interactive-card">
+                    <h3>Continuous Random Variable: Spinner</h3>
+                    <p>Spin to generate random values between 0 and 1 (uniform distribution)</p>
+                    
+                    <div class="spinner-simulator">
+                        <div class="spinner-container">
+                            <svg class="spinner" id="spinner" width="200" height="200" viewBox="0 0 200 200">
+                                <circle cx="100" cy="100" r="90" fill="none" stroke="#4f46e5" stroke-width="20" stroke-dasharray="283 283"/>
+                                <circle cx="100" cy="100" r="90" fill="none" stroke="#06b6d4" stroke-width="20" stroke-dasharray="142 565"/>
+                                <line id="spinnerArrow" x1="100" y1="100" x2="100" y2="20" stroke="#f59e0b" stroke-width="3" stroke-linecap="round"/>
+                                <circle cx="100" cy="100" r="8" fill="#f59e0b"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="spinner-value" id="spinnerValue">0.000</div>
+                        
+                        <button class="interactive-button" id="spinButton">Spin!</button>
+                        <button class="interactive-button secondary" id="spinMultiple">Spin 100 Times</button>
+                        <button class="interactive-button secondary" id="resetSpinner">Reset</button>
+                        
+                        <div class="stats-display">
+                            <div class="stat-item">
+                                <span class="stat-label">Total Spins:</span>
+                                <span class="stat-value" id="totalSpins">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Mean:</span>
+                                <span class="stat-value" id="avgSpin">-</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="spinnerChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Questions Section -->
+    <section id="challenges" class="content-section challenge-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Challenge Yourself</h2>
+                <div class="section-subtitle">Test your understanding with these thought-provoking questions</div>
+            </div>
+
+            <div class="challenges-container">
+                <div class="challenge-card">
+                    <div class="challenge-number">1</div>
+                    <h3 class="challenge-question">Why is P(X = a) = 0 for continuous random variables, yet we can still observe specific values?</h3>
+                    <button class="reveal-button" onclick="toggleAnswer(1)">Reveal Answer</button>
+                    <div class="challenge-answer" id="answer1">
+                        <p><strong>Answer:</strong> This is a fundamental concept in measure theory. For continuous RVs, there are uncountably infinite possible values, so the probability of hitting any exact single point is infinitesimally small (mathematically zero). However, we observe specific values because:</p>
+                        <ul>
+                            <li>Real measurements have finite precision (e.g., 170.5 cm actually represents an interval [170.45, 170.55))</li>
+                            <li>The PDF f(x) represents probability <em>density</em>, not probability itself</li>
+                            <li>Probability exists only over intervals: P(a ≤ X ≤ b) = ∫ᵃᵇ f(x) dx > 0</li>
+                            <li>The zero probability means it's theoretically impossible to hit an exact real number with infinite precision</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-number">2</div>
+                    <h3 class="challenge-question">Can a random variable be both discrete and continuous? What about neither?</h3>
+                    <button class="reveal-button" onclick="toggleAnswer(2)">Reveal Answer</button>
+                    <div class="challenge-answer" id="answer2">
+                        <p><strong>Answer:</strong> A random variable cannot be both discrete and continuous simultaneously (they are mutually exclusive by definition). However, a random variable can be <strong>neither</strong> - this is called a <strong>mixed random variable</strong>.</p>
+                        <p><strong>Example:</strong> Insurance claim amount X where:</p>
+                        <ul>
+                            <li>P(X = 0) = 0.7 (70% chance of no claim - discrete component)</li>
+                            <li>If X > 0, X follows a continuous distribution (e.g., exponential for claim amounts)</li>
+                        </ul>
+                        <p>This has both a probability mass at X=0 and a continuous density for X>0, making it a mixed distribution.</p>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-number">3</div>
+                    <h3 class="challenge-question">If two random variables have the same expected value and variance, are they necessarily the same distribution?</h3>
+                    <button class="reveal-button" onclick="toggleAnswer(3)">Reveal Answer</button>
+                    <div class="challenge-answer" id="answer3">
+                        <p><strong>Answer:</strong> No! Expected value and variance only capture the first two moments of a distribution. Many different distributions can share the same mean and variance.</p>
+                        <p><strong>Counterexample:</strong></p>
+                        <ul>
+                            <li>Let X₁ = {-1, 0, 1} with P(X₁ = -1) = 0.25, P(X₁ = 0) = 0.5, P(X₁ = 1) = 0.25</li>
+                            <li>Let X₂ = {-2, 2} with P(X₂ = -2) = 0.5, P(X₂ = 2) = 0.5</li>
+                        </ul>
+                        <p>Both have E[X] = 0 and Var(X) = 1, but completely different distributions! To fully characterize a distribution, you need all moments, or the entire PMF/PDF, or the moment-generating function.</p>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-number">4</div>
+                    <h3 class="challenge-question">Consider tossing a fair coin until you get a head. Is the sample space finite or infinite? What about the random variable X = "number of tosses"?</h3>
+                    <button class="reveal-button" onclick="toggleAnswer(4)">Reveal Answer</button>
+                    <div class="challenge-answer" id="answer4">
+                        <p><strong>Answer:</strong> Both the sample space and the random variable are <strong>countably infinite</strong>.</p>
+                        <p><strong>Sample Space:</strong> S = {H, TH, TTH, TTTH, ...} - infinite but listable sequences</p>
+                        <p><strong>Random Variable:</strong> X ∈ {1, 2, 3, 4, ...} follows a geometric distribution</p>
+                        <p><strong>PMF:</strong> P(X = k) = (1/2)^k for k = 1, 2, 3, ...</p>
+                        <p><strong>Key Insight:</strong> Even though there's no upper bound on the number of tosses (theoretically could flip tails forever), each specific outcome has a positive probability that decreases geometrically. The sum Σ P(X=k) = 1, confirming this is a valid probability distribution despite being infinite.</p>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-number">5</div>
+                    <h3 class="challenge-question">Why do we use different notation for discrete (PMF: p(x)) vs continuous (PDF: f(x)) random variables? What goes wrong if we try to use the same approach?</h3>
+                    <button class="reveal-button" onclick="toggleAnswer(5)">Reveal Answer</button>
+                    <div class="challenge-answer" id="answer5">
+                        <p><strong>Answer:</strong> The notation reflects a fundamental mathematical difference:</p>
+                        <p><strong>Discrete (PMF):</strong> p(x) = P(X = x) directly gives probability</p>
+                        <ul>
+                            <li>Sum of all p(x) = 1</li>
+                            <li>Can ask "what's the probability of exactly x?"</li>
+                        </ul>
+                        <p><strong>Continuous (PDF):</strong> f(x) is probability <em>density</em>, not probability</p>
+                        <ul>
+                            <li>f(x) can be > 1 (it's a density!)</li>
+                            <li>∫ f(x) dx = 1 (integral, not sum)</li>
+                            <li>P(X = x) = 0 for any specific x</li>
+                            <li>P(a ≤ X ≤ b) = ∫ᵃᵇ f(x) dx</li>
+                        </ul>
+                        <p><strong>What goes wrong:</strong> If we tried to assign probabilities P(X = x) to each point in a continuous distribution, we'd have uncountably many points, each needing probability > 0, making the total infinite (violating Σ P = 1). Density functions solve this by using integration over intervals instead.</p>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-number">6</div>
+                    <h3 class="challenge-question">A biased coin lands heads with probability p. You flip it n times. What is the probability that the number of heads equals the number of tails? How does this relate to discrete random variables?</h3>
+                    <button class="reveal-button" onclick="toggleAnswer(6)">Reveal Answer</button>
+                    <div class="challenge-answer" id="answer6">
+                        <p><strong>Answer:</strong> Let X = number of heads in n flips. X follows Binomial(n, p).</p>
+                        <p><strong>For equal heads and tails:</strong> We need X = n/2, which requires n to be even!</p>
+                        <ul>
+                            <li>If n is odd: P(X = n/2) = 0 (impossible to have equal splits)</li>
+                            <li>If n is even: P(X = n/2) = C(n, n/2) · p^(n/2) · (1-p)^(n/2)</li>
+                        </ul>
+                        <p><strong>Special cases:</strong></p>
+                        <ul>
+                            <li>Fair coin (p = 0.5): P(X = n/2) = C(n, n/2) / 2^n</li>
+                            <li>As n → ∞: This probability decreases for any fixed p</li>
+                        </ul>
+                        <p><strong>Connection to RVs:</strong> This demonstrates how discrete RVs assign exact probabilities to specific outcomes, and how the sample space structure (odd vs even n) affects possible values of the random variable.</p>
+                    </div>
+                </div>
+
+                <div class="challenge-card">
+                    <div class="challenge-number">7</div>
+                    <h3 class="challenge-question">Can you construct a sample space where the sample space itself is uncountably infinite, but the random variable defined on it is discrete? Give an example.</h3>
+                    <button class="reveal-button" onclick="toggleAnswer(7)">Reveal Answer</button>
+                    <div class="challenge-answer" id="answer7">
+                        <p><strong>Answer:</strong> Yes! The nature of the sample space doesn't determine whether the random variable is discrete or continuous.</p>
+                        <p><strong>Example:</strong> Dart throw on a continuous circular dartboard</p>
+                        <ul>
+                            <li><strong>Sample Space S:</strong> All points (x, y) on the unit circle - uncountably infinite</li>
+                            <li><strong>Random Variable X:</strong> Score based on which ring the dart lands in:
+                                <ul>
+                                    <li>X = 10 if distance from center r ≤ 0.2</li>
+                                    <li>X = 5 if 0.2 < r ≤ 0.6</li>
+                                    <li>X = 1 if 0.6 < r ≤ 1.0</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>Here S is continuous (uncountably many points), but X only takes values {1, 5, 10}, making it discrete! This shows that discreteness/continuity is a property of the random variable's range, not the sample space itself.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Created as an interactive study resource for undergraduate probability and statistics</p>
+            <p class="footer-note">Built with passion for mathematical education | © 2025</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
